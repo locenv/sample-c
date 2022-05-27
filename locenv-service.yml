@@ -1,0 +1,45 @@
+linux:
+  build:
+    requires:
+      c:
+      autoconf:
+      automake:
+      gmake:
+    steps:
+    - type: sh
+      command: ./autogen.sh
+    - type: sh
+      command: ./configure --prefix="$SERVICE_DATA"
+    - type: gmake
+    - type: gmake
+      arguments: [install]
+darwin:
+  build:
+    requires:
+      c:
+      autoconf:
+      automake:
+      gmake:
+    steps:
+    - type: sh
+      command: ./autogen.sh
+    - type: sh
+      command: ./configure --prefix="$SERVICE_DATA"
+    - type: gmake
+    - type: gmake
+      arguments: [install]
+win32:
+  build:
+    requires:
+      gcc:
+      autoconf:
+      automake:
+      gmake:
+    steps:
+    - type: sh
+      command: ./autogen.sh
+    - type: sh
+      command: ./configure --prefix="$SERVICE_DATA"
+    - type: gmake
+    - type: gmake
+      arguments: [install]
