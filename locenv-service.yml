@@ -17,7 +17,7 @@ linux:
     - name: Install
       uses: gmake
       with:
-        args: [install]
+        target: install
 darwin:
   build:
     steps:
@@ -37,7 +37,7 @@ darwin:
     - name: Install
       uses: gmake
       with:
-        args: [install]
+        target: [install
 win32:
   build:
     steps:
@@ -57,4 +57,4 @@ win32:
     - name: Install
       uses: gmake
       with:
-        args: [install]
+        target: install
