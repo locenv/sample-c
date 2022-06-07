@@ -1,45 +1,60 @@
 linux:
   build:
-    requires:
-      c:
-      autoconf:
-      automake:
-      gmake:
     steps:
-    - type: sh
-      command: ./autogen.sh
-    - type: sh
-      command: ./configure --prefix="$SERVICE_DATA"
-    - type: gmake
-    - type: gmake
-      arguments: [install]
+    - uses: autoconf
+    - uses: automake
+    - name: Generate configure script
+      uses: sh
+      with:
+        cmd: ./autogen.sh
+    - uses: c
+    - name: Generate Makefile
+      uses: sh
+      with:
+        cmd: ./configure --prefix="$SERVICE_DATA"
+    - name: Build
+      uses: gmake
+    - name: Install
+      uses: gmake
+      with:
+        args: [install]
 darwin:
   build:
-    requires:
-      c:
-      autoconf:
-      automake:
-      gmake:
     steps:
-    - type: sh
-      command: ./autogen.sh
-    - type: sh
-      command: ./configure --prefix="$SERVICE_DATA"
-    - type: gmake
-    - type: gmake
-      arguments: [install]
+    - uses: autoconf
+    - uses: automake
+    - name: Generate configure script
+      uses: sh
+      with:
+        cmd: ./autogen.sh
+    - uses: c
+    - name: Generate Makefile
+      uses: sh
+      with:
+        cmd: ./configure --prefix="$SERVICE_DATA"
+    - name: Build
+      uses: gmake
+    - name: Install
+      uses: gmake
+      with:
+        args: [install]
 win32:
   build:
-    requires:
-      gcc:
-      autoconf:
-      automake:
-      gmake:
     steps:
-    - type: sh
-      command: ./autogen.sh
-    - type: sh
-      command: ./configure --prefix="$SERVICE_DATA"
-    - type: gmake
-    - type: gmake
-      arguments: [install]
+    - uses: autoconf
+    - uses: automake
+    - name: Generate configure script
+      uses: sh
+      with:
+        cmd: ./autogen.sh
+    - uses: gcc
+    - name: Generate Makefile
+      uses: sh
+      with:
+        cmd: ./configure --prefix="$SERVICE_DATA"
+    - name: Build
+      uses: gmake
+    - name: Install
+      uses: gmake
+      with:
+        args: [install]
