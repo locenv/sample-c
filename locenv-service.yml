@@ -37,7 +37,7 @@ darwin:
     - name: Install
       uses: gmake
       with:
-        target: [install
+        target: install
 win32:
   build:
     steps:
