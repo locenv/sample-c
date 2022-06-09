@@ -1,60 +1,9 @@
 linux:
-  build:
-    steps:
-    - uses: autoconf
-    - uses: automake
-    - name: Generate configure script
-      uses: sh
-      with:
-        cmd: ./autogen.sh
-    - uses: c
-    - name: Generate Makefile
-      uses: sh
-      with:
-        cmd: ./configure --prefix="$SERVICE_DATA"
-    - name: Build
-      uses: gmake
-    - name: Install
-      uses: gmake
-      with:
-        target: install
+  build: |
+    print 'Hello, World!'
 darwin:
-  build:
-    steps:
-    - uses: autoconf
-    - uses: automake
-    - name: Generate configure script
-      uses: sh
-      with:
-        cmd: ./autogen.sh
-    - uses: c
-    - name: Generate Makefile
-      uses: sh
-      with:
-        cmd: ./configure --prefix="$SERVICE_DATA"
-    - name: Build
-      uses: gmake
-    - name: Install
-      uses: gmake
-      with:
-        target: install
+  build: |
+    print 'Hello, World!'
 win32:
-  build:
-    steps:
-    - uses: autoconf
-    - uses: automake
-    - name: Generate configure script
-      uses: sh
-      with:
-        cmd: ./autogen.sh
-    - uses: gcc
-    - name: Generate Makefile
-      uses: sh
-      with:
-        cmd: ./configure --prefix="$SERVICE_DATA"
-    - name: Build
-      uses: gmake
-    - name: Install
-      uses: gmake
-      with:
-        target: install
+  build: |
+    print 'Hello, World!'
