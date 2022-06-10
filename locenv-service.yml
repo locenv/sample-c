@@ -1,9 +1,54 @@
 linux:
   build: |
-    print 'Hello, World!'
+    local ac = require 'autoconf'
+    local am = require 'automake'
+    local gcc = require 'gcc'
+    local make = require 'gmake'
+    local sh = require 'sh'
+    local s = sh.newsession()
+
+    ac.setupsh(s)
+    am.setupsh(s)
+    gcc.setupsh(s)
+    make.setupsh(s)
+
+    s.run('./autogen.sh')
+    s.run('./configure --prefix="$LOCENV_DATA"')
+    s.run('make')
+    s.run('make install')
 darwin:
   build: |
-    print 'Hello, World!'
+    local ac = require 'autoconf'
+    local am = require 'automake'
+    local xc = require 'xcode'
+    local make = require 'gmake'
+    local sh = require 'sh'
+    local s = sh.newsession()
+
+    ac.setupsh(s)
+    am.setupsh(s)
+    xc.setupsh(s)
+    make.setupsh(s)
+
+    s.run('./autogen.sh')
+    s.run('./configure --prefix="$LOCENV_DATA"')
+    s.run('make')
+    s.run('make install')
 win32:
   build: |
-    print 'Hello, World!'
+    local ac = require 'autoconf'
+    local am = require 'automake'
+    local gcc = require 'gcc'
+    local make = require 'gmake'
+    local sh = require 'sh'
+    local s = sh.newsession()
+
+    ac.setupsh(s)
+    am.setupsh(s)
+    gcc.setupsh(s)
+    make.setupsh(s)
+
+    s.run('./autogen.sh')
+    s.run('./configure --prefix="$LOCENV_DATA"')
+    s.run('make')
+    s.run('make install')
