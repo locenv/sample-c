@@ -12,10 +12,9 @@ linux:
     gcc.setupsh(s)
     make.setupsh(s)
 
-    s.run('./autogen.sh')
-    s.run('./configure --prefix="$LOCENV_DATA"')
-    s.run('make')
-    s.run('make install')
+    s:run('./autogen.sh')
+    s:run('./configure')
+    s:run('make')
 darwin:
   build: |
     local ac = require 'autoconf'
@@ -30,10 +29,9 @@ darwin:
     xc.setupsh(s)
     make.setupsh(s)
 
-    s.run('./autogen.sh')
-    s.run('./configure --prefix="$LOCENV_DATA"')
-    s.run('make')
-    s.run('make install')
+    s:run('./autogen.sh')
+    s:run('./configure')
+    s:run('make')
 win32:
   build: |
     local ac = require 'autoconf'
@@ -48,7 +46,6 @@ win32:
     gcc.setupsh(s)
     make.setupsh(s)
 
-    s.run('./autogen.sh')
-    s.run('./configure --prefix="$LOCENV_DATA"')
-    s.run('make')
-    s.run('make install')
+    s:run('./autogen.sh')
+    s:run('./configure')
+    s:run('make')
